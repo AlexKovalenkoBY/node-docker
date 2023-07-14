@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-const mediplusPath = path.join(__dirname, '/mediplus')
+const mediplusPath = path.join(__dirname, '..').path.join(__dirname, '/mediplus')
 app.use(express.static(mediplusPath));
 
 // app.use('/', indexRouter);
@@ -26,7 +26,7 @@ app.get("/", function (req, res, next) {
   // res.sendFil("index", { title: "Express app title", name: "Прыуэт!!!!!!!   ))))" });
   res.sendFile('index.html', { root: mediplusPath })
 });
-app.use('/users', usersRouter);
+// app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
