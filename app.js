@@ -18,7 +18,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-const mediplusPath = path.join(__dirname, '..').path.join(__dirname, '/mediplus')
+const mediplusPath = path.join(__dirname, '/mediplus')
+console.log(mediplusPath+ ' - путь к каталогу '); 
+// .path.join(__dirname, '/mediplus')
 app.use(express.static(mediplusPath));
 
 // app.use('/', indexRouter);
