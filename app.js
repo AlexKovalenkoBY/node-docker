@@ -20,7 +20,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'mediplus')));
 
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
+app.get("/", function (req, res, next) {
+  // res.sendFil("index", { title: "Express app title", name: "Прыуэт!!!!!!!   ))))" });
+  res.sendFile('index.html', { root: __dirname+'mediplus' })
+});
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
