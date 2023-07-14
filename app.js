@@ -18,12 +18,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'mediplus')));
+const mediplusPath = path.join(__dirname, '/mediplus')
+app.use(express.static(mediplusPath));
 
 // app.use('/', indexRouter);
 app.get("/", function (req, res, next) {
   // res.sendFil("index", { title: "Express app title", name: "Прыуэт!!!!!!!   ))))" });
-  res.sendFile('index.html', { root: __dirname+'mediplus' })
+  res.sendFile('index.html', { root: mediplusPath })
 });
 app.use('/users', usersRouter);
 
